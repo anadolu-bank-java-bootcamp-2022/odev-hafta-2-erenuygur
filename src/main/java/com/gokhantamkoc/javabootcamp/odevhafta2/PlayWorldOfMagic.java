@@ -43,7 +43,31 @@ public class PlayWorldOfMagic implements CommandLineRunner {
 		
 		int spellsUsed = 0;
 		// ______ BASLANGIC _______ Kodunuz buradan baslamali
-		
+		int bossId=0;
+        int bossCount=bossNames.length;
+        float bossHealth;
+
+        while (bossCount>0) {
+
+            bossHealth=bossHPs[bossId];
+            while (bossHealth > 0) {
+
+                bossHealth -= spellDamageInfo[0];
+                System.out.println("Magician with "+magicianSpells[0]+ " " + spellDamageInfo[0] + " damaged to " + bossNames[bossId]);
+
+                if (bossHealth<0)
+					bossHealth=0;
+
+                System.out.println("Boss Health : "+bossHealth);
+                spellsUsed++;
+            }
+
+            System.out.println(bossNames[bossId]+" is dead ");
+            System.out.println("********************************************************\n");
+           
+		    bossId++;
+            bossCount--;
+        }
 		// ______ SON _______ Kodunuz burada bitmeli
 		/* NOT: ______ BASLANGIC _______ ve ______ SON _______ 
 		 * arasina istediginiz kadar sayida satir ekleyebilirsiniz.
